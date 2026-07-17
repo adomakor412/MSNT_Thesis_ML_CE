@@ -23,3 +23,6 @@ from sklearn.cluster import KMeans
 from sklearn.neural_network import MLPRegressor
 #from sklearn.datasets import make_regression
 from sklearn.metrics import mean_squared_error
+
+import gspread
+from google.oauth2.service_account import Credentials
