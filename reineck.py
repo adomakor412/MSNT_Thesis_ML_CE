@@ -26,3 +26,16 @@ from sklearn.metrics import mean_squared_error
 
 import gspread
 from google.oauth2.service_account import Credentials
+
+def myOHE(df, header):
+    #df_list = df[header].values.tolist()
+    #df_list = [str(val) for val in df[header].values]
+    df_list = df[header].astype(str).tolist()
+    myDict = {k:df_list.index(k) for k in df_list}
+    #print (myDict)
+    df_new = df
+    le = preprocessing.LabelEncoder()
+    df_new[header] = le.fit_transform(df_new[header].astype(str))
+    # for head in myDict.keys():
+    #     df_new[df_new[header]==head][head] = myDict[head]
+    return df_new
